@@ -1,4 +1,4 @@
-from Entity.Character.Character import Character
+from Entity.Character import Character
 
 class Ennemy(Character):
     

@@ -1,8 +1,7 @@
 
-from Entity.Character.Character import Character
-from Entity.Character.Hero import Mage
-from Entity.Character.Hero import Thief
-from Entity.Character.Hero import Warrior
+from Entity.Hero import Mage
+from Entity.Hero import Thief
+from Entity.Hero import Warrior
 
 class HeroFactory:
     def create(hero_type, name):

@@ -1,8 +1,8 @@
-from Entity.Character.Enemy import Wolf
-from Entity.Character.Enemy import Bandit
-from Entity.Character.Enemy import Skeleton
-from Entity.Character.Enemy import CorruptChamp
-from Entity.Character.Enemy import Boss
+from Entity.Enemy import Wolf
+from Entity.Enemy import Bandit
+from Entity.Enemy import Skeleton
+from Entity.Enemy import CorruptChamp
+from Entity.Enemy import Boss
 
   
 class EnnemyFactory:

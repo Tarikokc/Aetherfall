@@ -1,5 +1,5 @@
 import time
-
+from Factory.HeroFactory import HeroFactory
 def introduction():
     print("#####################################")
     print("#         RPG AETHERFALL            #")
@@ -22,8 +22,8 @@ def introduction():
 
 def choose_class():
     print("\nWhat's your name hero ? : ", end="")
-    name_aventurier = input()
-    print(f"\n{name_aventurier} ... Not bad")
+    name = input()
+    print(f"\n{name} ... Not bad")
     time.sleep(2)
     print("\nLet's continue.")
     time.sleep(2)
@@ -42,10 +42,13 @@ def choose_class():
 
     if choice == "1":
         print("    ➤ You choose class WARRIOR.")
+        HeroFactory.create("Warrior",name)
     elif choice == "2":
         print("    ➤ You choose class MAGE.")
+        HeroFactory.create("Mage",name)
     elif choice == "3":
         print("    ➤ You choose class THIEF.")
+        HeroFactory.create("Thief",name)
     else:
         print("    Choix invalide. Aucune classe sélectionnée.")
 
@@ -56,7 +59,7 @@ def main_menu():
     exit = False
 
     while not exit:
-        print("\n========================================== MENU AVENTURIER ==========================================")
+        print("\n========================================== HERO MENU ==========================================")
         print("1. Check inventory")
         print("2. Exit")
         choix = input("")
@@ -70,4 +73,10 @@ def main_menu():
             print("Invalid choice. Press a keystroke to continue......")
 
 if __name__ == "__main__":
-     introduction()
+    pass
+    # HeroFactory.create("Warrior","alyssa")
+    # HeroFactory.create("Mage","alyssa")
+    # HeroFactory.create("Thief","alyssa")
+
+
+
