@@ -1,4 +1,8 @@
+import copy
 from Entity.Character import Character
+from Environment.Forest import Forest
+from Environment.Village import Village
+from Environment.Map import Map
 
 class Hero(Character):
     
@@ -30,6 +34,48 @@ class Hero(Character):
         print(f"Agility        : {self.agility}")
         print(f"Critical Rate  : {self.critical_rate}%")
         print("=" * 50 + "\n")
+
+    def move(self,move,map):
+
+        while move:
+            position = [copy.deepcopy(self.pos_x), copy.deepcopy(self.pos_y)]
+            Village()
+            key = input("")
+            if key == "q":
+                self.pos_y -=1
+            elif key == "z":
+                self.pos_x -= 1
+            elif key == "f":
+                self.pos_y +=1
+            elif key == "d":
+                self.pos_x +=1
+            elif key == "i":
+                print("trigger inventory")
+
+            print(self.pos_x, self.pos_y)
+            print(position)
+
+            if [self.pos_x, self.pos_y] in map.house_position:
+                self.pos_x = copy.deepcopy(position[0])
+                self.pos_y = copy.deepcopy(position[1])
+                print("Physical barrier in the direction you choose, turn around")
+                break
+
+            if self.pos_x > Map.MAX_WIDTH - 1 or self.pos_y > Map.MAX_HEIGHT - 1 or self.pos_x == -1 or self.pos_y == -1 :
+                print("")
+                print(self.pos_x, self.pos_y)
+                print(position)
+                self.pos_x = copy.deepcopy(position[0])
+                self.pos_y = copy.deepcopy(position[1])
+                print(self.pos_x, self.pos_y)
+                print(position)
+
+                print("Out of the map, turn around")
+                break
+
+            map.hero_moving(self,position)
+
+        
 
 
 class Mage(Hero) : 

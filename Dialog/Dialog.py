@@ -1,4 +1,7 @@
 import time
+from Environment.Map import Map
+from Environment.Forest import Forest
+from Environment.Village import Village
 from Factory.HeroFactory import HeroFactory
 def introduction():
     print("#####################################")
@@ -74,7 +77,12 @@ def main_menu():
 
 if __name__ == "__main__":
     pass
-    # HeroFactory.create("Warrior","alyssa")
+    hero1 = HeroFactory.create("Warrior","alyssa")
+    print (hero1)
+    f1  = Village()
+    while True:
+        hero1.move(True,f1)
+
     # HeroFactory.create("Mage","alyssa")
     # HeroFactory.create("Thief","alyssa")
 
