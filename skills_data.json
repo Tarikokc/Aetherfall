@@ -1,0 +1,62 @@
+{
+    "Coup Puissant": {
+        "skill_type": "physical",
+        "damage": 100,
+        "cost": 15,
+        "cooldown": 1,
+        "effect": null,
+        "effect_duration": 0,
+        "target_type": "single",
+        "description": "Frappe puissante qui inflige de lourds dégâts physiques"
+    },
+    "Charge Héroïque": {
+        "skill_type": "physical",
+        "damage": 80,
+        "cost": 20,
+        "cooldown": 2,
+        "effect": "stun",
+        "effect_duration": 1,
+        "target_type": "single",
+        "description": "Charge l'ennemi et l'étourdit pendant 1 tour"
+    },
+    "Boule de Feu": {
+        "skill_type": "magic",
+        "damage": 120,
+        "cost": 30,
+        "cooldown": 2,
+        "effect": "burn",
+        "effect_duration": 2,
+        "target_type": "single",
+        "description": "Lance une boule de feu brûlante qui inflige des dégâts sur la durée"
+    },
+    "Bouclier Arcanique": {
+        "skill_type": "buff",
+        "damage": 0,
+        "cost": 25,
+        "cooldown": 3,
+        "effect": "defense_up",
+        "effect_duration": 3,
+        "target_type": "self",
+        "description": "Crée un bouclier magique augmentant la défense pendant 3 tours"
+    },
+    "Attaque Sournoise": {
+        "skill_type": "physical",
+        "damage": 150,
+        "cost": 25,
+        "cooldown": 3,
+        "effect": "critical",
+        "effect_duration": 0,
+        "target_type": "single",
+        "description": "Frappe critique dans le dos de l'ennemi pour des dégâts massifs"
+    },
+    "Esquive Parfaite": {
+        "skill_type": "buff",
+        "damage": 0,
+        "cost": 20,
+        "cooldown": 4,
+        "effect": "dodge_up",
+        "effect_duration": 2,
+        "target_type": "self",
+        "description": "Augmente drastiquement l'esquive pendant 2 tours"
+    }
+}
