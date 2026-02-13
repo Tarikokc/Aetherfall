@@ -87,6 +87,10 @@ class Fight :
                 
                 if enemyKO:
                     print(f"\nWin! The enemy {enemy_type} is DEAD")
+                    self.hero.beaten += 1
+                    if self.hero.beaten == 1:
+                        print("KEY UNLOCK ON FOREST ")
+                        Event.trigger_event(Key(),self.hero.map)
                     time.sleep(2)
                     return True
             

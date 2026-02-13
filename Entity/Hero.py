@@ -93,10 +93,10 @@ class Hero(Character):
                 print("Out of the map, turn around")
                 break
 
-                elif [self.pos_x,self.pos_y] in self.map.house_position and self.map.visual[self.pos_x][self.pos_y] == "𖤝":
-                    print("KEY OBTAINED")
-                    self.quest["key"] = True
-                    self.map.visual[self.pos_x][self.pos_y] == "."
+            elif [self.pos_x,self.pos_y] in self.map.house_position and self.map.visual[self.pos_x][self.pos_y] == "𖤝":
+                print("KEY OBTAINED")
+                self.quest["key"] = True
+                self.map.visual[self.pos_x][self.pos_y] == "."
 
             elif self.map.visual[self.pos_x][self.pos_y] == "⛿":
                 Event.trigger_event(PNJ(),"villager",self)
