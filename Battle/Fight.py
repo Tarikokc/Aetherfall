@@ -1,6 +1,9 @@
 import random
 import time
 from Battle.Skill import Skill
+from Event.Event import Event
+from Event.Key import Key
+
 class Fight : 
     def __init__(self,hero,enemy):
         self.hero = hero
