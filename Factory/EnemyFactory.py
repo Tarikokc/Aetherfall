@@ -6,16 +6,19 @@ from Entity.Enemy import Boss
 
   
 class EnemyFactory:
-    def create(Enemy_type, name=None):
+
+    ENNEMY_TYPE = ["Wolf","Bandit","Skeleton","Corrupt Harroun","Magellan"]
+
+    def create(Enemy_type):
         if Enemy_type == "Wolf":
-            return Wolf(name) 
+            return Wolf() 
         if Enemy_type == "Bandit":
-            return Bandit(name) 
+            return Bandit() 
         if Enemy_type == "Skeleton":
-            return Skeleton(name) 
+            return Skeleton() 
         if Enemy_type == "Corrupt Harroun":
-            return CorruptChamp(name) 
+            return CorruptChamp() 
         if Enemy_type == "Magellan":
-            return Boss(name) 
+            return Boss() 
         
         # raise ValueError(f"Type d'ennemi inconnu: {Enemy_type}")
