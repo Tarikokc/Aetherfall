@@ -3,6 +3,9 @@ from Entity.Character import Character
 from Environment.Forest import Forest
 from Environment.Village import Village
 from Environment.Map import Map
+from Event.Event import Event
+from Event.PNJ import PNJ
+from Environment.Village import Village
 
 class Hero(Character):
     
@@ -14,6 +17,8 @@ class Hero(Character):
 
         self.symbol = ""
         self.speed = 50
+        self.quest={"start":True,"pnj":False,"key":False,"Boss":False}
+        self.map = Village()
         
         
     def statistics(self):
@@ -35,11 +40,12 @@ class Hero(Character):
         print(f"Critical Rate  : {self.critical_rate}%")
         print("=" * 50 + "\n")
 
-    def move(self,move,map):
+    def move(self,move):
 
         while move:
             position = [copy.deepcopy(self.pos_x), copy.deepcopy(self.pos_y)]
-            Village()
+            can_move = True
+            self.map.display_map()
             key = input("")
             if key == "q":
                 self.pos_y -=1
@@ -54,29 +60,50 @@ class Hero(Character):
 
             print(self.pos_x, self.pos_y)
             print(position)
+            print(self.map.visual)
+            #print(self.map.visual[self.pos_x][self.pos_y])
+            print(Map.MAX_HEIGHT)
+            print(self.pos_y)
 
-            if [self.pos_x, self.pos_y] in map.house_position:
+
+            if self.pos_y ==  Map.MAX_HEIGHT:
+                choice = input("Would you like to go on the Forest ? \n")
+                if choice == "yes":
+                    self.map = Forest()
+                    self.pos_x = 0
+                    self.pos_y = 0
+                else:
+                    print(f"{self.name} : I stay in the {self.map.__class__.__name__} for the moment")
+                    can_move = False
+
+            elif self.map.visual[self.pos_x][self.pos_y] == "⛿":
+                Event.trigger_event(PNJ(),"villager",self)
+                self.pos_x = copy.deepcopy(position[0])
+                self.pos_y = copy.deepcopy(position[1])
+                can_move = False
+
+            elif self.map.visual[self.pos_x][self.pos_y] == "฿":
+                Event.trigger_event(PNJ(),"merchand",self)
+                self.pos_x = copy.deepcopy(position[0])
+                self.pos_y = copy.deepcopy(position[1])
+                can_move = False
+
+            elif [self.pos_x, self.pos_y] in self.map.house_position:
                 self.pos_x = copy.deepcopy(position[0])
                 self.pos_y = copy.deepcopy(position[1])
                 print("Physical barrier in the direction you choose, turn around")
                 break
 
-            if self.pos_x > Map.MAX_WIDTH - 1 or self.pos_y > Map.MAX_HEIGHT - 1 or self.pos_x == -1 or self.pos_y == -1 :
-                print("")
-                print(self.pos_x, self.pos_y)
-                print(position)
+            elif self.pos_x > Map.MAX_WIDTH - 1 or self.pos_y > Map.MAX_HEIGHT - 1 or self.pos_x == -1 or self.pos_y == -1 :
                 self.pos_x = copy.deepcopy(position[0])
                 self.pos_y = copy.deepcopy(position[1])
-                print(self.pos_x, self.pos_y)
-                print(position)
-
                 print("Out of the map, turn around")
                 break
 
-            map.hero_moving(self,position)
+            if can_move:
+                self.map.hero_moving(self,position)
 
-        
-
+    
 
 class Mage(Hero) : 
     def __init__(self, name):

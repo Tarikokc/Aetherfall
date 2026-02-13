@@ -29,10 +29,22 @@ class Village(Map):
                 map_village.append(map_village_line)
 
             for i in range (0,Village.MAX_HOUSE):
-                position_house = [random.randint(1,Map.MAX_WIDTH - 1),random.randint(1,Map.MAX_HEIGHT - 1)]
+                position_house = [random.randint(1,Map.MAX_WIDTH - 2),random.randint(1,Map.MAX_HEIGHT - 1)]
                 print("position house")
                 print(position_house)
                 map_village[position_house[0]][position_house[1]] = "⌂"
                 self.house_position.append([position_house[0],position_house[1]])
+
+            position_pnj = [random.randint(1,Map.MAX_WIDTH - 1),random.randint(1,Map.MAX_HEIGHT - 1)]
+            while position_pnj in self.house_position:
+                position_pnj = [random.randint(1,Map.MAX_WIDTH - 1),random.randint(1,Map.MAX_HEIGHT - 1)]
+            map_village[position_pnj[0]][position_pnj[1]] = "⛿"
+            self.house_position.append([position_pnj[0],position_pnj[1]])
+
+            position_merchand = [random.randint(1,Map.MAX_WIDTH - 1),random.randint(1,Map.MAX_HEIGHT - 1)]
+            while position_merchand in self.house_position:
+                position_merchand = [random.randint(1,Map.MAX_WIDTH - 1),random.randint(1,Map.MAX_HEIGHT - 1)]
+            map_village[position_merchand[0]][position_merchand[1]] = "฿"
+
             self.visual = map_village
     
