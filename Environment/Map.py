@@ -11,7 +11,8 @@ class Map:
         pass
 
     def hero_moving(self,hero,previous_position):
-        self.visual[previous_position[0]][previous_position[1]] = "."
+        if not previous_position[1] == Map.MAX_HEIGHT or previous_position[0] == Map.MAX_WIDTH:
+            self.visual[previous_position[0]][previous_position[1]] = "."
         self.visual[hero.pos_x][hero.pos_y] = hero.symbol
 
     def display_map(self):

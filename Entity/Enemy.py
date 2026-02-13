@@ -21,7 +21,7 @@ class Wolf(Enemy) :
 class Skeleton(Enemy) : 
    def __init__(self):
         super().__init__(
-            name="Squeleton", pv=150, defense=80, attack=80,
+            name="Squeleton", pv=150, defense=40, attack=80,
             stamina=50, dodge=0.8, agility=80,critical_rate=10,
             pos_x=0, pos_y=0,symbol="𓀠"
         )
@@ -31,7 +31,7 @@ class Skeleton(Enemy) :
 class CorruptChamp(Enemy) : 
    def __init__(self):
         super().__init__(
-            name="Corrupt Harroun", pv=150, defense=80, attack=80,
+            name="Corrupt Harroun", pv=150, defense=40, attack=80,
             stamina=50, dodge=0.8, agility=80,critical_rate=10,
             pos_x=0, pos_y=0,symbol="〠"
         )
@@ -41,7 +41,7 @@ class CorruptChamp(Enemy) :
 class Bandit(Enemy) : 
    def __init__(self):
         super().__init__(
-            name="Bandit", pv=150, defense=80, attack=80,
+            name="Bandit", pv=150, defense=40, attack=80,
             stamina=50, dodge=0.8, agility=80,critical_rate=10,
             pos_x=0, pos_y=0,symbol="𓀪"
         )
@@ -51,7 +51,7 @@ class Bandit(Enemy) :
 class Boss(Enemy) : 
    def __init__(self):
         super().__init__(
-            name="Magellan", pv=150, defense=80, attack=80,
+            name="Magellan", pv=150, defense=40, attack=80,
             stamina=50, dodge=0.8, agility=80,critical_rate=10,
             pos_x=0, pos_y=0,symbol="𓆌"
         )

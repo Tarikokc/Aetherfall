@@ -1,4 +1,5 @@
 import copy
+import random
 from Entity.Character import Character
 from Environment.Forest import Forest
 from Environment.Village import Village
@@ -6,6 +7,8 @@ from Environment.Map import Map
 from Event.Event import Event
 from Event.PNJ import PNJ
 from Environment.Village import Village
+from Factory.EnemyFactory import EnemyFactory
+from Battle.Fight import Fight
 
 class Hero(Character):
     
@@ -45,6 +48,7 @@ class Hero(Character):
         while move:
             position = [copy.deepcopy(self.pos_x), copy.deepcopy(self.pos_y)]
             can_move = True
+            stayed = False
             self.map.display_map()
             key = input("")
             if key == "q":
@@ -60,11 +64,6 @@ class Hero(Character):
 
             print(self.pos_x, self.pos_y)
             print(position)
-            print(self.map.visual)
-            #print(self.map.visual[self.pos_x][self.pos_y])
-            print(Map.MAX_HEIGHT)
-            print(self.pos_y)
-
 
             if self.pos_y ==  Map.MAX_HEIGHT:
                 choice = input("Would you like to go on the Forest ? \n")
@@ -74,7 +73,15 @@ class Hero(Character):
                     self.pos_y = 0
                 else:
                     print(f"{self.name} : I stay in the {self.map.__class__.__name__} for the moment")
+                    stayed = True
                     can_move = False
+            
+            elif self.map.__class__.__name__ == "Forest":
+                if [self.pos_x,self.pos_y] in self.map.house_position and self.map.visual[self.pos_x][self.pos_y] != "𖢔":
+                    print("ENNEMY TRIGGERED")
+                    enemy_index = random.randint(0,len(EnemyFactory.ENNEMY_TYPE)-1)
+                    enemy = EnemyFactory.create(EnemyFactory.ENNEMY_TYPE[enemy_index])
+                    Fight(self,enemy).fight_enemy()
 
             elif self.map.visual[self.pos_x][self.pos_y] == "⛿":
                 Event.trigger_event(PNJ(),"villager",self)

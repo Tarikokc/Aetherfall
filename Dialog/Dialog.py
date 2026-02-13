@@ -97,19 +97,18 @@ def main_menu():
             print("Invalid choice. Press a keystroke to continue......")
 
 if __name__ == "__main__":
-    # pass
-    # hero1 = HeroFactory.create("Warrior","alyssa")
-    # print (hero1)
-    # f1  = Village()
-    # while True:
-    #     hero1.move(True,f1)
-    hero = introduction()
+    hero1 = HeroFactory.create("Warrior","alyssa")
+    print (hero1)
+    f1  = Village()
+    while True:
+        hero1.move(True)
+    # hero = introduction()
     
-    if hero:
-        main_menu()
+    # if hero:
+    #     main_menu()
         
-        print("\n Entering the village...")
-        village = Village()
+    #     print("\n Entering the village...")
+    #     village = Village()
     
     # HeroFactory.create("Mage","alyssa")
     # HeroFactory.create("Thief","alyssa")
