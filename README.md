@@ -73,7 +73,7 @@ pip install -r requirements.txt
 
 Run the game:
 ```bash
-python main.py
+python -m Dialog.Dialog
 ```
 
 Run tests:
