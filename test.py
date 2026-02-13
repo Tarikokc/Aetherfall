@@ -30,7 +30,7 @@ print(f"💥 Critical Rate: {hero.critical_rate * 100}%")
 print("\n" + "="*50)
 print("🎒 INVENTAIRE")
 print("="*50)
-for item in hero.equipement:
+for item in hero.equipment:
     print(f"  • {item}")
     if hasattr(item, 'stat_bonus'):
         print(f"    Bonus: {item.stat_bonus}")

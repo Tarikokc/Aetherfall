@@ -6,8 +6,11 @@ from Environment.Village import Village
 from Factory.HeroFactory import HeroFactory
 from Factory.HeroFactory import HeroFactory
 from Inventory.Item import start_equipment
+from Inventory.Inventory import Inventory
 from Battle.Fight import Fight
 from Entity.Enemy import Wolf, Skeleton, Bandit
+import msvcrt
+
 def introduction():
     print("#####################################")
     print("#         RPG AETHERFALL            #")
@@ -64,12 +67,12 @@ def choose_class():
     else:
         print("Choix invalide. Aucune classe sélectionnée.")
 
-    equipment =start_equipment(hero)
+    start_equipment(hero)
     
     print("\n" + "="*50)
     print("YOUR EQUIPMENT")
     print("="*50)
-    for item in hero.equipement:
+    for item in hero.equipment:
         print(f"  • {item}")  
     print("="*50)
     
@@ -77,11 +80,22 @@ def choose_class():
     input("Press a keystroke to continue...")
     
     return hero  
-    # main_menu()
 
-def main_menu():
-    exit = False
+# def check_inventory(hero) : 
+#     key = input("")
+#     if key == "i" : 
+#         hero.inventory.display_item()
+#         input("\n Press Enter to continue...")
+#         return True
+#     return False
 
+# def game(hero) : 
+#     hero.move(True)
+    
+#     check_inventory(hero)
+
+def main_menu(hero):
+    exit = False 
     while not exit:
         print("\n========================================== HERO MENU ==========================================")
         print("1. Check inventory")
@@ -89,7 +103,7 @@ def main_menu():
         choix = input("")
 
         if choix == "1":
-            print("Inventory : [empty]")
+            hero.inventory.display_item()
         elif choix == "2":
             print("Goodbye Hero !")
             exit = True
@@ -97,18 +111,13 @@ def main_menu():
             print("Invalid choice. Press a keystroke to continue......")
 
 if __name__ == "__main__":
-    hero1 = HeroFactory.create("Warrior","alyssa")
-    print (hero1)
-    f1  = Village()
-    while True:
-        hero1.move(True)
-    # hero = introduction()
+    hero = introduction()
     
-    # if hero:
-    #     main_menu()
+    if hero:
+        hero.move(True)
         
-    #     print("\n Entering the village...")
-    #     village = Village()
+        
+        
     
     # HeroFactory.create("Mage","alyssa")
     # HeroFactory.create("Thief","alyssa")
