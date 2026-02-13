@@ -4,6 +4,7 @@ from Entity.Hero import Thief
 from Entity.Hero import Warrior
 
 class HeroFactory:
+    @staticmethod 
     def create(hero_type, name):
         if hero_type == "Warrior" : 
             return Warrior(name)

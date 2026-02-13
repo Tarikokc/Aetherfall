@@ -1,0 +1,322 @@
+{
+  "weapons": {
+    "Épée de Fer": {
+      "type": "weapon",
+      "stat_bonus": {
+        "attack": 5
+      },
+      "price": 50,
+      "description": "Une épée basique en fer, fiable et solide",
+      "rarity": "common"
+    },
+    "Épée d'Acier": {
+      "type": "weapon",
+      "stat_bonus": {
+        "attack": 10
+      },
+      "price": 150,
+      "description": "Épée forgée en acier trempé, bien équilibrée",
+      "rarity": "uncommon"
+    },
+    "Lame du Dragon": {
+      "type": "weapon",
+      "stat_bonus": {
+        "attack": 25,
+        "critical_rate": 5
+      },
+      "price": 500,
+      "description": "Lame légendaire forgée dans les flammes d'un dragon",
+      "rarity": "legendary"
+    },
+    "Bâton de Bois": {
+      "type": "weapon",
+      "stat_bonus": {
+        "magic_attack": 8
+      },
+      "price": 40,
+      "description": "Simple bâton de bois pour apprenti mage",
+      "rarity": "common",
+      "class_requirement": "Mage"
+    },
+    "Bâton Magique": {
+      "type": "weapon",
+      "stat_bonus": {
+        "magic_attack": 15,
+        "mana": 20
+      },
+      "price": 200,
+      "description": "Bâton enchanté qui amplifie les sorts",
+      "rarity": "uncommon",
+      "class_requirement": "Mage"
+    },
+    "Sceptre des Arcanes": {
+      "type": "weapon",
+      "stat_bonus": {
+        "magic_attack": 30,
+        "mana": 50
+      },
+      "price": 600,
+      "description": "Sceptre imprégné de pure énergie arcanique",
+      "rarity": "legendary",
+      "class_requirement": "Mage"
+    },
+    "Dague Rouillée": {
+      "type": "weapon",
+      "stat_bonus": {
+        "attack": 3,
+        "agility": 5
+      },
+      "price": 30,
+      "description": "Dague légère mais en mauvais état",
+      "rarity": "common",
+      "class_requirement": "Thief"
+    },
+    "Dague d'Ombre": {
+      "type": "weapon",
+      "stat_bonus": {
+        "attack": 8,
+        "agility": 10,
+        "critical_rate": 10
+      },
+      "price": 180,
+      "description": "Lame sombre qui frappe dans les angles morts",
+      "rarity": "uncommon",
+      "class_requirement": "Thief"
+    },
+    "Crocs du Serpent": {
+      "type": "weapon",
+      "stat_bonus": {
+        "attack": 15,
+        "agility": 20,
+        "critical_rate": 15
+      },
+      "price": 550,
+      "description": "Doubles dagues empoisonnées des assassins légendaires",
+      "rarity": "legendary",
+      "class_requirement": "Thief"
+    }
+  },
+  "armors": {
+    "Vêtements Simples": {
+      "type": "armor",
+      "stat_bonus": {
+        "defense": 2
+      },
+      "price": 20,
+      "description": "Habits ordinaires, peu protecteurs",
+      "rarity": "common"
+    },
+    "Armure de Cuir": {
+      "type": "armor",
+      "stat_bonus": {
+        "defense": 8,
+        "dodge": 0.05
+      },
+      "price": 100,
+      "description": "Armure légère en cuir tanné",
+      "rarity": "common"
+    },
+    "Armure de Mailles": {
+      "type": "armor",
+      "stat_bonus": {
+        "defense": 15
+      },
+      "price": 250,
+      "description": "Cotte de mailles robuste",
+      "rarity": "uncommon"
+    },
+    "Armure de Plates": {
+      "type": "armor",
+      "stat_bonus": {
+        "defense": 25,
+        "pv": 20
+      },
+      "price": 450,
+      "description": "Armure complète en plaques d'acier",
+      "rarity": "rare",
+      "class_requirement": "Warrior"
+    },
+    "Armure du Titan": {
+      "type": "armor",
+      "stat_bonus": {
+        "defense": 40,
+        "pv": 50
+      },
+      "price": 800,
+      "description": "Armure légendaire forgée par les géants",
+      "rarity": "legendary",
+      "class_requirement": "Warrior"
+    },
+    "Robe d'Apprenti": {
+      "type": "armor",
+      "stat_bonus": {
+        "defense": 5,
+        "mana": 15
+      },
+      "price": 80,
+      "description": "Robe simple enchantée pour les novices",
+      "rarity": "common",
+      "class_requirement": "Mage"
+    },
+    "Robe Mystique": {
+      "type": "armor",
+      "stat_bonus": {
+        "defense": 12,
+        "mana": 30,
+        "magic_attack": 5
+      },
+      "price": 300,
+      "description": "Robe tissée de fils magiques",
+      "rarity": "uncommon",
+      "class_requirement": "Mage"
+    },
+    "Robe de l'Archimage": {
+      "type": "armor",
+      "stat_bonus": {
+        "defense": 20,
+        "mana": 70,
+        "magic_attack": 15
+      },
+      "price": 700,
+      "description": "Robe légendaire des maîtres des arcanes",
+      "rarity": "legendary",
+      "class_requirement": "Mage"
+    },
+    "Tenue de Voleur": {
+      "type": "armor",
+      "stat_bonus": {
+        "defense": 7,
+        "agility": 8,
+        "dodge": 0.1
+      },
+      "price": 120,
+      "description": "Vêtements discrets favorisant la mobilité",
+      "rarity": "common",
+      "class_requirement": "Thief"
+    },
+    "Armure d'Ombre": {
+      "type": "armor",
+      "stat_bonus": {
+        "defense": 15,
+        "agility": 15,
+        "dodge": 0.15
+      },
+      "price": 350,
+      "description": "Armure légère qui se fond dans les ténèbres",
+      "rarity": "rare",
+      "class_requirement": "Thief"
+    },
+    "Cape du Spectre": {
+      "type": "armor",
+      "stat_bonus": {
+        "defense": 18,
+        "agility": 25,
+        "dodge": 0.25,
+        "critical_rate": 5
+      },
+      "price": 750,
+      "description": "Cape légendaire des voleurs fantômes",
+      "rarity": "legendary",
+      "class_requirement": "Thief"
+    }
+  },
+  "consumables": {
+    "Petite Potion": {
+      "type": "consumable",
+      "effect": "heal",
+      "value": 30,
+      "price": 20,
+      "description": "Restaure 30 PV",
+      "stackable": true
+    },
+    "Potion": {
+      "type": "consumable",
+      "effect": "heal",
+      "value": 50,
+      "price": 50,
+      "description": "Restaure 50 PV",
+      "stackable": true
+    },
+    "Grande Potion": {
+      "type": "consumable",
+      "effect": "heal",
+      "value": 100,
+      "price": 100,
+      "description": "Restaure 100 PV",
+      "stackable": true
+    },
+    "Potion Complète": {
+      "type": "consumable",
+      "effect": "heal_full",
+      "value": 0,
+      "price": 200,
+      "description": "Restaure tous les PV",
+      "stackable": true
+    },
+    "Antidote": {
+      "type": "consumable",
+      "effect": "cure_poison",
+      "value": 0,
+      "price": 30,
+      "description": "Soigne l'empoisonnement",
+      "stackable": true
+    },
+    "Remède": {
+      "type": "consumable",
+      "effect": "cure_all",
+      "value": 0,
+      "price": 80,
+      "description": "Soigne tous les statuts négatifs",
+      "stackable": true
+    },
+    "Élixir": {
+      "type": "consumable",
+      "effect": "restore_stamina",
+      "value": 30,
+      "price": 40,
+      "description": "Restaure 30 points d'endurance",
+      "stackable": true
+    },
+    "Potion de Mana": {
+      "type": "consumable",
+      "effect": "restore_mana",
+      "value": 40,
+      "price": 50,
+      "description": "Restaure 40 points de mana",
+      "stackable": true,
+      "class_requirement": "Mage"
+    },
+    "Bombe": {
+      "type": "consumable",
+      "effect": "damage",
+      "value": 50,
+      "price": 60,
+      "description": "Inflige 50 dégâts à l'ennemi",
+      "stackable": true
+    },
+    "Grenade Explosive": {
+      "type": "consumable",
+      "effect": "damage",
+      "value": 100,
+      "price": 120,
+      "description": "Inflige 100 dégâts explosifs",
+      "stackable": true
+    },
+    "Fiole de Poison": {
+      "type": "consumable",
+      "effect": "apply_poison",
+      "value": 3,
+      "price": 70,
+      "description": "Empoisonne l'ennemi pendant 3 tours",
+      "stackable": true
+    },
+    "Pierre de Tonnerre": {
+      "type": "consumable",
+      "effect": "apply_stun",
+      "value": 1,
+      "price": 90,
+      "description": "Étourdit l'ennemi pendant 1 tour",
+      "stackable": true
+    }
+  }
+}

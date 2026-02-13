@@ -1,8 +1,13 @@
 import time
+import random
 from Environment.Map import Map
 from Environment.Forest import Forest
 from Environment.Village import Village
 from Factory.HeroFactory import HeroFactory
+from Factory.HeroFactory import HeroFactory
+from Inventory.Item import start_equipment
+from Battle.Fight import Fight
+from Entity.Enemy import Wolf, Skeleton, Bandit
 def introduction():
     print("#####################################")
     print("#         RPG AETHERFALL            #")
@@ -15,11 +20,13 @@ def introduction():
     if choix == "1":
         print("\nYou wake up in a small village lost and weak asf ...")
         time.sleep(2)
-        choose_class()
+        hero = choose_class()
+        return hero
     elif choix == "2":
         print("\nGoodbye hero !")
     else:
         print("\nInvalid Choice. Relaunch Game.")
+        return introduction()
 
     input("\nClick on any keystroke to exit game...")
 
@@ -42,21 +49,35 @@ def choose_class():
 
     choice = input("Choose your future (1 for warrior, 2 for mage, 3 for rogue) : ")
     print()
+    
+    hero = None
 
     if choice == "1":
         print("    ➤ You choose class WARRIOR.")
-        HeroFactory.create("Warrior",name)
+        hero = HeroFactory.create("Warrior",name)
     elif choice == "2":
         print("    ➤ You choose class MAGE.")
-        HeroFactory.create("Mage",name)
+        hero = HeroFactory.create("Mage",name)
     elif choice == "3":
         print("    ➤ You choose class THIEF.")
-        HeroFactory.create("Thief",name)
+        hero = HeroFactory.create("Thief",name)
     else:
-        print("    Choix invalide. Aucune classe sélectionnée.")
+        print("Choix invalide. Aucune classe sélectionnée.")
 
+    equipment =start_equipment(hero)
+    
+    print("\n" + "="*50)
+    print("YOUR EQUIPMENT")
+    print("="*50)
+    for item in hero.equipement:
+        print(f"  • {item}")  
+    print("="*50)
+    
+    time.sleep(1)
     input("Press a keystroke to continue...")
-    main_menu()
+    
+    return hero  
+    # main_menu()
 
 def main_menu():
     exit = False
@@ -76,13 +97,20 @@ def main_menu():
             print("Invalid choice. Press a keystroke to continue......")
 
 if __name__ == "__main__":
-    pass
-    hero1 = HeroFactory.create("Warrior","alyssa")
-    print (hero1)
-    f1  = Village()
-    while True:
-        hero1.move(True,f1)
-
+    # pass
+    # hero1 = HeroFactory.create("Warrior","alyssa")
+    # print (hero1)
+    # f1  = Village()
+    # while True:
+    #     hero1.move(True,f1)
+    hero = introduction()
+    
+    if hero:
+        main_menu()
+        
+        print("\n Entering the village...")
+        village = Village()
+    
     # HeroFactory.create("Mage","alyssa")
     # HeroFactory.create("Thief","alyssa")
 

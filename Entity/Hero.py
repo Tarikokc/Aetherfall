@@ -6,10 +6,10 @@ from Environment.Map import Map
 
 class Hero(Character):
     
-    def __init__(self, name, pv, defense, force, stamina,
+    def __init__(self, name, pv, defense, attack, stamina,
                  dodge, agility, critical_rate, pos_x, pos_y):
 
-        super().__init__(name, pv, defense, force, stamina,
+        super().__init__(name, pv, defense, attack, stamina,
                          dodge, agility, critical_rate, pos_x, pos_y)
 
         self.symbol = ""
@@ -27,7 +27,7 @@ class Hero(Character):
         print("-" * 50)
         print(f"PV             : {self.pv}")
         print(f"Defense        : {self.defense}")
-        print(f"Strenght       : {self.force}")
+        print(f"Strenght       : {self.attack}")
         print(f"Speed          : {self.speed}")
         print(f"Endurance      : {self.stamina}")
         print(f"Dodge          : {self.dodge}")
@@ -84,7 +84,7 @@ class Mage(Hero) :
             name=name,
             pv=100,
             defense=70,
-            force=50,
+            attack=50,
             stamina=50,
             dodge=0.5,
             agility=50,
@@ -108,7 +108,7 @@ class Mage(Hero) :
         print("-" * 50)
         print(f"PV             : {self.pv}")
         print(f"Defense        : {self.defense}")
-        print(f"Strenght       : {self.force}")
+        print(f"Strenght       : {self.attack}")
         print(f"Speed          : {self.speed}")
         print(f"Endurance      : {self.stamina}")
         print(f"Dodge          : {self.dodge}")
@@ -126,7 +126,7 @@ class Thief(Hero) :
             name=name,
             pv=100,
             defense=70,
-            force=50,
+            attack=50,
             stamina=50,
             dodge=0.8,
             agility=80,
@@ -148,7 +148,7 @@ class Warrior(Hero) :
             name=name,
             pv=150,
             defense=80,
-            force=80,
+            attack=80,
             stamina=60,
             dodge=0.3,
             agility=50,
@@ -161,3 +161,4 @@ class Warrior(Hero) :
         self.speed = 60
         self.statistics()
 
+        
