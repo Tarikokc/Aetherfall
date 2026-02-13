@@ -4,6 +4,7 @@ from Environment.Map import Map
 class Village(Map):
 
     MAX_HOUSE = 15
+    MAX_CHEST = 4
     _instance = None
 
     def __new__(cls):
@@ -34,7 +35,12 @@ class Village(Map):
                 print(position_house)
                 map_village[position_house[0]][position_house[1]] = "⌂"
                 self.house_position.append([position_house[0],position_house[1]])
-
+            for i in range (0,Village.MAX_CHEST):
+                position_house = [random.randint(1,Map.MAX_WIDTH - 2),random.randint(1,Map.MAX_HEIGHT - 1)]
+                print("position house")
+                print(position_house)
+                map_village[position_house[0]][position_house[1]] = "𖡧"
+                self.house_position.append([position_house[0],position_house[1]])
             position_pnj = [random.randint(1,Map.MAX_WIDTH - 1),random.randint(1,Map.MAX_HEIGHT - 1)]
             while position_pnj in self.house_position:
                 position_pnj = [random.randint(1,Map.MAX_WIDTH - 1),random.randint(1,Map.MAX_HEIGHT - 1)]

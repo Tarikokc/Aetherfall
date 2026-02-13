@@ -20,7 +20,19 @@ class Character :
         
     def is_alive(self) :
         return self.pv > 0 
-        
+    
+    def apply_buff(self, stat, value, duration): 
+        """Applique un buff - ultra simple"""
+        if stat == "defense":
+            self.defense += value
+            print(f"🛡️  Defense +{value}!")
+        elif stat == "dodge":
+            self.dodge += value
+            print(f"💨 Dodge +{value}!")
+        elif stat == "attack":
+            self.attack += value
+            print(f"⚔️  Attack +{value}!")
+             
     def add_status(self,status) : 
         self.status.append(status)
         print(f" {self.name} Is affected by: {status.get_name()}")

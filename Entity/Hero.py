@@ -7,7 +7,10 @@ from Environment.Map import Map
 from Event.Event import Event
 from Event.PNJ import PNJ
 from Environment.Village import Village
+from Factory.EnemyFactory import EnemyFactory  
 from Inventory.Inventory import Inventory
+from Battle.Fight import Fight
+from Battle.Skill import Skill
 class Hero(Character):
     
     def __init__(self, name, pv, defense, attack, stamina,
@@ -80,6 +83,12 @@ class Hero(Character):
                     enemy_index = random.randint(0,len(EnemyFactory.ENNEMY_TYPE)-1)
                     enemy = EnemyFactory.create(EnemyFactory.ENNEMY_TYPE[enemy_index])
                     Fight(self,enemy).fight_enemy()
+                    
+            elif self.pos_x > Map.MAX_WIDTH - 1 or self.pos_y > Map.MAX_HEIGHT - 1 or self.pos_x == -1 or self.pos_y == -1 :
+                self.pos_x = copy.deepcopy(position[0])
+                self.pos_y = copy.deepcopy(position[1])
+                print("Out of the map, turn around")
+                break
 
             elif self.map.visual[self.pos_x][self.pos_y] == "⛿":
                 Event.trigger_event(PNJ(),"villager",self)
@@ -97,12 +106,6 @@ class Hero(Character):
                 self.pos_x = copy.deepcopy(position[0])
                 self.pos_y = copy.deepcopy(position[1])
                 print("Physical barrier in the direction you choose, turn around")
-                break
-
-            elif self.pos_x > Map.MAX_WIDTH - 1 or self.pos_y > Map.MAX_HEIGHT - 1 or self.pos_x == -1 or self.pos_y == -1 :
-                self.pos_x = copy.deepcopy(position[0])
-                self.pos_y = copy.deepcopy(position[1])
-                print("Out of the map, turn around")
                 break
 
             if can_move:
@@ -127,6 +130,24 @@ class Mage(Hero) :
         self.mana = 150
         self.magic_attack = 80
         self.inventory = []
+        self.skills = [
+            Skill(
+                name="Boule de feu",
+                skill_type="magic",
+                damage=60,
+                cost=25,
+                cooldown=1,
+            ),
+            Skill(
+                name="Bouclier arcanique",
+                skill_type="buff",
+                damage=0,
+                cost=20,
+                cooldown=3,
+                effect="defense_up",
+                effect_duration=2,
+            )
+        ]
         self.statistics()
 
 
@@ -167,6 +188,25 @@ class Thief(Hero) :
             pos_x=0,
             pos_y=0
         )
+        self.inventory = []
+        self.skills = [
+            Skill(
+                name="Attaque sournoise",
+                skill_type="physical",
+                damage=50,
+                cost=15,
+                cooldown=1,
+            ),
+            Skill(
+                name="Esquive parfaite",
+                skill_type="buff",
+                damage=0,
+                cost=25,
+                cooldown=4,
+                effect="dodge_up",
+                effect_duration=2,
+            )
+        ]        
         self.symbol = "𓀡"
         self.speed = 60
         self.statistics()
@@ -190,6 +230,24 @@ class Warrior(Hero) :
             pos_y=0
         )
         self.inventory = []
+        self.skills = [
+            Skill(
+                name="Coup puissant",
+                skill_type="physical",
+                damage=40,
+                cost=20,
+                cooldown=2,
+            ),
+            Skill(
+                name="Charge héroïque",
+                skill_type="buff",
+                damage=0,
+                cost=30,
+                cooldown=3,
+                effect="defense_up",
+                effect_duration=2,
+            )
+        ]
         self.symbol = "𓀛"
         self.speed = 60
         self.statistics()

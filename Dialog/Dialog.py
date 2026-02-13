@@ -113,7 +113,7 @@ def main_menu(hero):
 if __name__ == "__main__":
     hero = introduction()
     
-    if hero:
+    while True:
         hero.move(True)
         
         
