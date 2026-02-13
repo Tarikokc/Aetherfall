@@ -1,8 +1,7 @@
 import json
-
 class Skill:
     
-    with open("../skills_data.json", 'r', encoding='utf-8') as f:
+    with open("skills_data.json", 'r', encoding='utf-8') as f:
         _skills_data= json.load(f)
         
     def __init__(self, name, skill_type, damage, cost, cooldown=0, effect_duration = 0,effect = None):
@@ -23,20 +22,30 @@ class Skill:
         
         caster.stamina -= self.cost
         
-        if self.skill_type == "physical" : 
-            damage_target = max(0, self.damage + self.attack - target.defense)
+        if self.skill_type == "physical":
+            damage_target = max(0, self.damage + caster.attack - target.defense)
             target.pv -= damage_target
-            print(damage_target)
+            print(f"{damage_target} physical damage!")
+            print(f"{target.name}: {target.pv} HP")
+        
         elif self.skill_type == "magic":
             target.pv -= self.damage
+            print(f"{self.damage} magic damage!")
+            print(f"{target.name}: {target.pv} HP")
+        
         elif self.skill_type == "buff":
             if self.effect == "defense_up":
                 caster.apply_buff("defense", 50, self.effect_duration)
             elif self.effect == "dodge_up":
-                caster.apply_buff("dodge", 30, self.effect_duration)
+                caster.apply_buff("dodge", 0.3, self.effect_duration)
+                
         self.current_cooldown = self.cooldown
         return True
+    
 
+    def __repr__(self): 
+        return f"{self.name}"
+    
     def create(classe, name):
         """Créer une compétence depuis le JSON"""
         data = classe._skills_data[name]

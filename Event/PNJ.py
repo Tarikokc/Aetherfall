@@ -1,7 +1,6 @@
 import time
 
 class PNJ:
-
     def merchand():
         print("shop")
 
