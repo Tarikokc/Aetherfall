@@ -168,6 +168,8 @@ This project is open source and available for educational purposes.
 
 **Tarikokc**
 - GitHub: [@Tarikokc](https://github.com/Tarikokc)
+**Lylyss97x**
+- Github: [@Lylyss97x](https://github.com/Lylyss97x)
 
 ---
 
