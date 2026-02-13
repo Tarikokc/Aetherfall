@@ -6,7 +6,7 @@ from Environment.Map import Map
 from Event.Event import Event
 from Event.PNJ import PNJ
 from Environment.Village import Village
-
+from Inventory.Inventory import Inventory
 class Hero(Character):
     
     def __init__(self, name, pv, defense, attack, stamina,
@@ -19,7 +19,9 @@ class Hero(Character):
         self.speed = 50
         self.quest={"start":True,"pnj":False,"key":False,"Boss":False}
         self.map = Village()
-        
+        self.inventory = Inventory()
+
+
         
     def statistics(self):
         print("\n" + "=" * 50)
@@ -41,7 +43,6 @@ class Hero(Character):
         print("=" * 50 + "\n")
 
     def move(self,move):
-
         while move:
             position = [copy.deepcopy(self.pos_x), copy.deepcopy(self.pos_y)]
             can_move = True
@@ -56,8 +57,7 @@ class Hero(Character):
             elif key == "d":
                 self.pos_x +=1
             elif key == "i":
-                print("trigger inventory")
-
+                self.inventory.display_item()
             print(self.pos_x, self.pos_y)
             print(position)
             print(self.map.visual)
@@ -121,6 +121,7 @@ class Mage(Hero) :
         )
         self.mana = 150
         self.magic_attack = 80
+        self.inventory = []
         self.statistics()
 
 
@@ -183,7 +184,7 @@ class Warrior(Hero) :
             pos_x=0,
             pos_y=0
         )
-
+        self.inventory = []
         self.symbol = "𓀛"
         self.speed = 60
         self.statistics()

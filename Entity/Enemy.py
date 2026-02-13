@@ -3,9 +3,9 @@ from Entity.Character import Character
 class Enemy(Character):
     
     # def __init__(self, name, pv, defense, attack, speed, stamina, dodge, agility,
-    #              critical_rate, competence, status, equipement, pos_x, pos_y,symbol):
+    #              critical_rate, competence, status, equipment, pos_x, pos_y,symbol):
     #     super().__init__(name, pv, defense, attack, speed, stamina, dodge, agility,
-    #                     critical_rate, competence, status, equipement, pos_x, pos_y,symbol)
+    #                     critical_rate, competence, status, equipment, pos_x, pos_y,symbol)
     pass
 
 class Wolf(Enemy) : 
@@ -16,7 +16,7 @@ class Wolf(Enemy) :
             pos_x=0, pos_y=0,symbol="𓃥"
         )
         status="neutral"
-        equipement=[], 
+        equipment=[], 
         
 class Skeleton(Enemy) : 
    def __init__(self):
@@ -26,7 +26,7 @@ class Skeleton(Enemy) :
             pos_x=0, pos_y=0,symbol="𓀠"
         )
         status="neutral"
-        equipement=[], 
+        equipment=[], 
 
 class CorruptChamp(Enemy) : 
    def __init__(self):
@@ -36,7 +36,7 @@ class CorruptChamp(Enemy) :
             pos_x=0, pos_y=0,symbol="〠"
         )
         status="neutral"
-        equipement=[]
+        equipment=[]
 
 class Bandit(Enemy) : 
    def __init__(self):
@@ -46,7 +46,7 @@ class Bandit(Enemy) :
             pos_x=0, pos_y=0,symbol="𓀪"
         )
         status="neutral"
-        equipement=[]
+        equipment=[]
 
 class Boss(Enemy) : 
    def __init__(self):
@@ -56,4 +56,4 @@ class Boss(Enemy) :
             pos_x=0, pos_y=0,symbol="𓆌"
         )
         status="neutral"
-        equipement=[]
+        equipment=[]

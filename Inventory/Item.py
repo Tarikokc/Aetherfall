@@ -1,4 +1,5 @@
 import json
+from Inventory.Inventory import Inventory
 class Item:
     with open("items_data.json", 'r', encoding='utf-8') as f:
         _items_data= json.load(f)
@@ -6,6 +7,7 @@ class Item:
     def __init__(self, name,data):
         self.name = name
         self.type = data["type"]
+        self.price = data["price"]
         self.description = data["description"]
         
         if "stat_bonus" in data:
@@ -53,15 +55,20 @@ STARTING_EQUIPMENT = {
 }
 
 def start_equipment(hero) : 
+    hero.inventory = Inventory()
+
     class_name = hero.__class__.__name__
     
     
-    equipement = STARTING_EQUIPMENT.get(class_name)
+    equipment = STARTING_EQUIPMENT.get(class_name)
     
-    weapon = Item.create_item("weapons", equipement["weapon"])
+    weapon = Item.create_item("weapons", equipment["weapon"])
     hero.equip_item(weapon)
+    hero.inventory.add_equipment(weapon)
     
-    for item_name , quantity in equipement["consumables"] : 
+    
+    for item_name , quantity in equipment["consumables"] : 
         item = Item.create_item("consumables", item_name, quantity)
-        hero.equipement.append(item)
+        hero.equipment.append(item)
+        hero.inventory.add_item(item)
         print(f"{item} added to inventory")    

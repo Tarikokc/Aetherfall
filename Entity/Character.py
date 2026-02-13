@@ -14,7 +14,7 @@ class Character :
         self.symbol = symbol  
         self.skill = []
         self.status = []
-        self.equipement = []
+        self.equipment = []
         self.pos_x = pos_x
         self.pos_y = pos_y
         
@@ -26,7 +26,7 @@ class Character :
         print(f" {self.name} Is affected by: {status.get_name()}")
         
     def equip_item(self,item) : 
-        self.equipement.append(item)
+        self.equipment.append(item)
 
         if item.type == "weapon" or item.type== "armor" :
             for stat, value in item.stat_bonus.items() : 
