@@ -79,9 +79,8 @@ if __name__ == "__main__":
     pass
     hero1 = HeroFactory.create("Warrior","alyssa")
     print (hero1)
-    f1  = Village()
     while True:
-        hero1.move(True,f1)
+        hero1.move(True)
 
     # HeroFactory.create("Mage","alyssa")
     # HeroFactory.create("Thief","alyssa")
