@@ -33,6 +33,7 @@ class Forest(Map):
                 position_house = [random.randint(1,Map.MAX_WIDTH - 2),random.randint(1,Map.MAX_HEIGHT - 1)]
                 map_forest[position_house[0]][position_house[1]] = "𖢔"
                 self.house_position.append([position_house[0],position_house[1]])
+                
             for i in range(0,Forest.MAX_ENEMY):
                 position_enemy = [random.randint(1,Map.MAX_WIDTH - 2),random.randint(1,Map.MAX_HEIGHT - 1)]
                 while position_enemy in self.house_position:

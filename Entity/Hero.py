@@ -8,6 +8,7 @@ from Event.Event import Event
 from Event.PNJ import PNJ
 from Environment.Village import Village
 from Inventory.Inventory import Inventory
+from Factory.EnemyFactory import EnemyFactory
 class Hero(Character):
     
     def __init__(self, name, pv, defense, attack, stamina,
@@ -23,6 +24,8 @@ class Hero(Character):
         self.inventory = Inventory()
 
 
+        self.beaten = 0
+        
         
     def statistics(self):
         print("\n" + "=" * 50)
@@ -75,11 +78,16 @@ class Hero(Character):
                     can_move = False
             
             elif self.map.__class__.__name__ == "Forest":
-                if [self.pos_x,self.pos_y] in self.map.house_position and self.map.visual[self.pos_x][self.pos_y] != "𖢔":
+                if [self.pos_x,self.pos_y] in self.map.house_position and self.map.visual[self.pos_x][self.pos_y] != "𖢔" and self.map.visual[self.pos_x][self.pos_y] != "𖤝":
                     print("ENNEMY TRIGGERED")
                     enemy_index = random.randint(0,len(EnemyFactory.ENNEMY_TYPE)-1)
                     enemy = EnemyFactory.create(EnemyFactory.ENNEMY_TYPE[enemy_index])
                     Fight(self,enemy).fight_enemy()
+
+                elif [self.pos_x,self.pos_y] in self.map.house_position and self.map.visual[self.pos_x][self.pos_y] == "𖤝":
+                    print("KEY OBTAINED")
+                    self.quest["key"] = True
+                    self.map.visual[self.pos_x][self.pos_y] == "."
 
             elif self.map.visual[self.pos_x][self.pos_y] == "⛿":
                 Event.trigger_event(PNJ(),"villager",self)
